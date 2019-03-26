@@ -1,11 +1,8 @@
-var x= prompt("Please enter the Number");   x= parseInt(x);
-var result=0 ,sum = 0 , remainder =0; 
-
-while (x!=0) 
+var n=1; 
+n= parseInt(n);
+while(n<1000)
 {
-   remainder = parseInt(x) % 10; 
-   sum = sum + remainder ;
-   x = parseInt(x)/10;
+    if(n%2==0)
+      console.log(n);
+     n++;
 }
-
-console.log(sum);
