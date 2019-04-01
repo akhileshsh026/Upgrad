@@ -1,18 +1,27 @@
-var shoppingList = ['Milk',2,'Bread',3,'Potato',12];
-var temp;
+var itemList = [];
 
-for(var i=0;i<shoppingList.length;i++)
-{
-       
-    if(i%2===0)
-    {
-        temp = (shoppingList[i] + "-");
-
-    } else
-    {
-        temp += shoppingList[i];
-        console.log(temp);
-        temp=null;
+itemsToBuy = {
+    bread: {
+        isAvailable : false,
+        quantityToBuy : 2,
+    },
+    eggs : {
+        isAvailable : true,
+        quantityToBuy : 0
+    },
+    tomatoes: {
+        isAvailable : false,
+        quantityToBuy : 23
     }
-    
 }
+
+for (var keys in itemsToBuy)
+{
+    if(itemsToBuy[keys]["isAvailable"] != false)
+    {
+        itemList.push(keys);
+    }
+
+}
+
+console.log(itemList);
