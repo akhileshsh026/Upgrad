@@ -1,31 +1,26 @@
-                                            // Exmaples of Closures
-// Example 3 ( Namespacing private functions )
 
-var dwightSalary = ( function() {
-    var salary = 60000;
-    function changeBy(amount) {
-        salary += amount;
-    }
+
+
+function modifyItem() {
+    var items = 0;
+ 
     return {
-        raise : function() { 
-            changeBy(5000); 
+        add: function() {
+            console.log("Added item to cart!");
+            items++;
         },
-        lower : function() {
-            changeBy(-5000);
-        },
-        currentAmount : function() {
-            return salary;
+ 
+        getCount: function() {
+            return "Items in cart = " + items;
         }
-    };
-}) ();  // ?
-
-console.log(dwightSalary.currentAmount());
-dwightSalary.raise();
-console.log(dwightSalary.currentAmount());
-dwightSalary.lower();
-dwightSalary.lower();
-console.log(dwightSalary.currentAmount());
-
-dwightSalary.changeBy(10000);
-
-
+    }
+ }
+ 
+ var item = modifyItem();
+ 
+ item.add();
+ console.log(item.getCount()); // prints 1
+ 
+ item.add();
+ item.add();
+ console.log(item.getCount()); // prints 2
