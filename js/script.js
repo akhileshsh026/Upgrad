@@ -26,4 +26,6 @@ dwightSalary.lower();
 dwightSalary.lower();
 console.log(dwightSalary.currentAmount());
 
+dwightSalary.changeBy(10000);
+
 
