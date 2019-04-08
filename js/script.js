@@ -1,25 +1,23 @@
-var Item = [];
-var itemsInCart = Item.length;
+                                            // Exmaples of Closures
+
+// Example :1
 
 
 
-function addItem()
+
+function welcome(name)
 {
-    Item.push("Item1");
-    console.log("Item added to cart!");
-    itemsInCart+= 1;
-    console.log("Items in cart = "+ itemsInCart);
+    var greeting = "Welcome! " + name;
+    var message = function() {
+        console.log(greeting);
+    }
+    return message;
 }
+var sayHello = welcome("Akhilesh");
 
-function removeItem()
-{
-    Item.pop();
-    console.log("Item removed from cart!");
-    itemsInCart-=1;
-    console.log("Items in cart = "+ itemsInCart);
-}
+sayHello();
 
-console.log("Initially: Items in cart = " + itemsInCart);
-addItem();
-addItem();
-removeItem();
+
+
+
+
