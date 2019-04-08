@@ -1,26 +1,18 @@
-
-
-
-function modifyItem() {
-    var items = 0;
+function createEmployeeID() {
+    var prefix = "employee";
+    return generateID();
+ }
  
-    return {
-        add: function() {
-            console.log("Added item to cart!");
-            items++;
-        },
- 
-        getCount: function() {
-            return "Items in cart = " + items;
-        }
+ var generateID = function() {
+    for (var i = 0; i < 5; i++) {
+        console.log(prefix + i);
     }
  }
  
- var item = modifyItem();
+ var print = createEmployeeID();
+
+ /*
  
- item.add();
- console.log(item.getCount()); // prints 1
- 
- item.add();
- item.add();
- console.log(item.getCount()); // prints 2
+ The anonymous function contained in the variable generateID is not written inside the function createEmployeeID(). It is just called inside the function createEmployeeID(). The scope of both these functions are different. This is why, the variable prefix (declared inside the function named createEmployeeID) is not inside the scope of the function generateID. Thus, this option is the correct choice.
+
+ */
