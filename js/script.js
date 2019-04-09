@@ -1,12 +1,28 @@
-var person = {
-    firestName : "Akhilesh kumar",
-    lastName : "Sahu",
-    get : function() {
-        console.log("outer : My name is "+ this.firestName + this.lastName);
-        var print = function(role,role2) {
-            console.log("Inner : My name is "+ this.firestName + this.lastName + " My role 1 and role 2 are :" + role + ","+ role2);
-        }.apply(this,["dev","devops"])
+var laptop = {
+    company: "Apple",
+    model: "Macbook Air",
+    os: "macOS",
+    set: function (company, model, os) {
+        var setCompany = function (company) {
+            this.company = company;
+        }.bind(this, company);
+ 
+        var setModel = function (model) {
+            this.model = model;
+        }.bind(this);
+ 
+        var setOS = function (os) {
+            this.os = os;
+        }
+ 
+        setCompany();
+        setModel();
+        setOS();
+    },
+    get: function() {
+        console.log(this.company, this.model, this.os);
     }
-}
-
-person.get();
+ };
+ 
+ laptop.set("Dell", "Inspiron", "Windows");
+ laptop.get();
