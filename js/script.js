@@ -1,10 +1,12 @@
-var x = 22;
-var a = 5, b;
-
-function foo() {
-   var y = 7;
-   b = 2;
-}
-
-console.log(x / 7);
-console.log(a / b);
+var person = {
+    name: "Mayank Kumar",
+    gender: "male"
+ }
+ 
+ var employee = {
+    id: 1001
+ }
+ 
+ employee.__proto__ = person;
+ console.log(person.__proto__);
+ console.log(employee.__proto__);
