@@ -1,46 +1,32 @@
-/*
-var title = "A Passage to India";
-var author = "E.M. Forster";
+// prototypal inheritance in ES5:
 
-var novel = {
-   title: "Pride and Prejudice",
-   author: "Jane Austen",
-   get: function() {
-       console.log("Title = " + this.title + ", Author = " + this.author);
+ var Animal =  {
+       moves :true
+ }
 
-       var print = function() {
-           console.log("Title = " + this.title + ", Author = " + this.author);
-       }
-       print();
-   }
-}
+ var Rabbit = {
+     eats : true
+ }
 
-novel.get();
+ Rabbit.__proto__ = Animal;
+ console.log(Rabbit.moves);
 
-*/
+ //can be rewritten as follows using the classes in ES6 syntax:
+ class Animal1 {
+     constructor() {
+         this.moves = true;
+     }
+ }
 
+ class Rabbit1 extends Animal1 {
+     constructor()
+     {
+         super();
+         this.eats =true;
+     }
+ } 
 
-var laptop = {
-    company: "Apple",
-    model: "Macbook Air",
-    os: "macOS",
-    set: function (company, model, os) {
-        var setCompany = function (company) {
-            this.company = company;
-        }.bind(this, company);
+ let rabbit1 = new Rabbit1();
+ console.log(rabbit1.moves);
+
  
-        var setModel = function (model) {
-            this.model = model;
-        }.call(this, model);
- 
-        var setOS = function (os) {
-            this.os = os;
-        }.apply(this, os);
-    },
-    get: function () {
-        console.log("Company = " + this.company + "\nModel = " + this.model + "\nOS = " + this.os);
-    }
- };
- 
- laptop.set("Dell", "Inspiron", "Windows");
- laptop.get();
