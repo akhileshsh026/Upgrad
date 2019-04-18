@@ -1,50 +1,39 @@
-/* 
-TODO 1: Create a class named Shape.
-The class Shape must have a constructor which sets the property numberOfSides to the value passed as an argument to the constructor.
-*/
-class Shape {
-    constructor(numberOfSides)
-    {
-        this.numberOfSides = numberOfSides;
-    }
+//Map
+
+const words = ["Kitkat", "Lollipop", "Marshmallow", "Noughat", "Oreo"];
+var temp="";
+words.map(function(item) {
+  temp += (item+",");
+})
+console.log(temp.substring(0,40));
+
+//Filter
+
+words.filter(function(item) {
+  if(item == "Oreo")
+  console.log(item + "Item Found");
+})
+
+const a = [10, 20, 30];
+a.filter(function(item) {
+  if(item>=15)
+  console.log(item);
+})
+
+
+function sums(a) {
+   let sum=0;
+   for (let i = 0; i < a.length; i++) {
+      sum +=a[i]; 
+   }
+   console.log(sum);
 }
 
-/*
-TODO 2: Create a class named Circle.
-The class Circle must inherit the class Shape.
-The class Circle must have a constructor which passes 0 as the value to the parent constructor as the argument for the numberOfSides.
-The constructor must also set the property radius to the value passed as an argument to it.
-*/
+sums(a);
 
-class Circle extends Shape {
-    constructor(radius)
-    {
-        super(0);
-        this.radius = radius;
-    }
-}
-
-/*
-TODO 3: Create a class named Rectangle.
-The class Rectangle must inherit the class Shape.
-The class Rectangle must have a constructor which passes 4 as the value to the parent constructor as the argument for the numberOfSides.
-The constructor must also set the property length and breadth to the values passed as arguments to it.
-*/
-class Rectangle extends Shape {
-    constructor(length,breadth)
-    {
-        super(4);
-        this.length = length;
-        this.breadth = breadth;
-    }
-}
-
-// TODO 4: Instantiate the Circle class while passing the radius as argument with the value 3
-var circle = new Circle(3);
-// TODO 5: Print the value of the property radius on the instance of the Circle class
-console.log("Radius = "+circle.radius);
-
-// TODO 6: Instantiate the Rectangle class while passing the length and breadth as arguments with the values 1 and 2 respectively
-var rectangle = new Rectangle(1,2);
-// TODO 7: Print the value of the properties length and breadth on the instance of the Rectangle class
-console.log("Length = "+rectangle.length+", Breadth = "+rectangle.breadth);
+//Reduce
+const b = [10, 20, 30,40,50,60,70,80];
+b.reduce(function(x,y){
+  console.log(" X :"+ x," Y :"+ y);
+  return y/x; // any operation u can do here x+y x*y 
+})
