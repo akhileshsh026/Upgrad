@@ -1,45 +1,40 @@
-// print parameters using the ...rest parameters not psoobile with arguments[0]
-let pk = (...arr) => {
-  console.log(arr[0]);
+// Template literals
+
+let firstname = "Akhilesh Kumar";
+let lastname = "Sahu";
+
+console.log(`My Name is ${firstname} ${lastname}`);
+
+// also without using the newline opeartor 
+
+let like= "Google";
+
+console.log(`my Name is ${firstname} ${lastname}
+and i would like to ${like}`);
+
+//Question 
+
+/**
+ * Function to print the order summary with the given customer and order details 
+ */
+const printOrderSummary = () => {
+  // TODO: Rewrite the message given below using template literals (template strings)
+  let message = `Hi ${customer.firstName} ${customer.lastName}! Your order for ${order.items.length} items has been successfully placed. Thank you!`;
+  console.log(message);
+}
+
+// object consisting details of the customer
+const customer = {
+  firstName: "Srishti",
+  lastName: "Gupta",
+  gender: "female"
 };
-pk(1,23);
 
-// rest parameters mut be at the end of the funtion
-let pk1 = (multiplier,...a) =>{      // let pk1 = (multiplier,...a,b) =>{ throws error
-  for (let i = 0; i < a.length; i++) {
-    a[i]*= multiplier;
-  }
-    console.log(a)
+// object consisting details of the order
+const order = {
+  id: "SG101",
+  amount: 950,
+  items: ["Apparel", "Shoes", "Bag"]
 }
 
-pk1(3,1,2,3,4,5);
-
-// question solution
-/* TODO: Define a function with identifier calculateSumAfterTax
-This function calculates the sum of all the prices after applying given tax on each price. 
-*/
-function calculateSumAfterTax(...arr) {
-  let result=0;   
-  arr.map(function (item) {
-         result += (item + (item*0.1));
-     })
-     return result;
-}
-
-// Printing the sum of all the prices - 10, 20, and 30 after tax of 10% (first argument) is applied on each of the prices (subsequent parameters)
-console.log(calculateSumAfterTax(10, 20, 30));
-
-// arguments vs rest parameter
-let foo = (...arg) => {
-  console.log(arg[0]);
-}
-
-foo(12,34,34,3,43,);
-
-/* this gives error but solve by above code using rest parameter.
-let foo1 = ()=> {
-  console.log(arguments[0]);
-}
-
-foo1(12,34,34,3,43,);
-*/
+printOrderSummary(customer, order);
