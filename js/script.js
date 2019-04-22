@@ -1,6 +1,15 @@
-//ES5
-import sum from './util';
-//ES6
-//const sum = require('./util');
+/* 
+1 method
 
-console.log(sum(1,2,3,4));
+import {sum,avg} from './util1.ja';
+
+2 nd method
+
+import {sum as add} from './util.ja'; 
+  
+3rd method  * as an aliase
+*/
+import * as fn from './util1.js';
+
+console.log(fn.sum(1,2,3,4));
+console.log(fn.avg(1,2,3,4));
