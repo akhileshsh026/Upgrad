@@ -1,40 +1,48 @@
-// Template literals
+// Destructing of the arrays
 
-let firstname = "Akhilesh Kumar";
-let lastname = "Sahu";
+const mobNo = [91,9424,357016];
 
-console.log(`My Name is ${firstname} ${lastname}`);
+// type 1
+const [country,operator,susbscriber] = mobNo;
 
-// also without using the newline opeartor 
+console.log(country);
+console.log(operator);
+console.log(susbscriber);
+console.log("\n");
 
-let like= "Google";
+// type 2
+const [country1,subs1] = mobNo;
 
-console.log(`my Name is ${firstname} ${lastname}
-and i would like to ${like}`);
+console.log(country1);
+console.log(subs1);
+console.log("\n");
 
-//Question 
+// type 3
+const [country2, ,susbscriber2] = mobNo;
 
-/**
- * Function to print the order summary with the given customer and order details 
- */
-const printOrderSummary = () => {
-  // TODO: Rewrite the message given below using template literals (template strings)
-  let message = `Hi ${customer.firstName} ${customer.lastName}! Your order for ${order.items.length} items has been successfully placed. Thank you!`;
-  console.log(message);
+console.log(country2);
+console.log(susbscriber2);
+console.log("\n");
+
+
+// Destructing of the Objects.
+
+var customer  = {
+  firstName : 'Akhilesh Kumar',
+  lastName  : 'Sahu',
+  MobileNo  : 7987373427,
+  Address   : 'Mandla'
 }
 
-// object consisting details of the customer
-const customer = {
-  firstName: "Srishti",
-  lastName: "Gupta",
-  gender: "female"
-};
 
-// object consisting details of the order
-const order = {
-  id: "SG101",
-  amount: 950,
-  items: ["Apparel", "Shoes", "Bag"]
-}
+const {firstName ,lastName} = customer;
 
-printOrderSummary(customer, order);
+console.log(firstName,lastName);
+console.log("\n");
+
+// also you can use aliancing to use the words other than keys in object.
+
+const {firstName:fn1,lastName:ln1} = customer;
+
+console.log(fn1,ln1);
+console.log("\n");
