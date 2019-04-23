@@ -1,12 +1,15 @@
-function login(loggedIn) {
-    message = "Please login!";
-    console.log(message);
-    if (loggedIn) {
-        name = "Srishti";
-        let name;
-        var message = "Welcome " + name + "!";
-        console.log(message);
+class Person {
+    constructor() {
+        console.log("I am a person.");
     }
  }
  
- login(true);
+ class Employee extends Person {
+    constructor() {
+        console.log("I am an employee.");
+    }
+ }
+ 
+ let p = new Person();
+ let e = new Employee();
+
