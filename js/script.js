@@ -1,34 +1,17 @@
-console.log('1) Passing function as a context in bind method');
-
-let printDetails = function(fname, lname, role) {
-    console.log(fname + " " + lname + ". I am a " + role + ".");
+var beta = function() {
+  console.log("Entered beta!");
+  setTimeout(function () {
+      console.log("Inside beta!");
+  }, 2000);
+  console.log("Exited beta!");
 }
-var person3 = {
-    firstName: "John",
-    lastName: "Doe",
-    get: function () {
-        var print = function (fname, lname, role) {
-           this(fname, lname, role);
-        }.bind(printDetails, this.firstName, this.lastName, 'Tester');
-        print();
-    }
- };
 
- person3.get();
+var alpha = function () {
+  console.log("Entered alpha!");
+  setTimeout(function() {
+      beta();
+  }, 2000);
+  console.log("Exited alpha!");
+}
 
-
- console.log('2) Passing the Object as context.');
- var person2 = {
-    details: {
-        firstName: "Roshan",
-        lastName: "Menon"
-    },
-    get: function () {
-        var print = function (role) {
-            console.log(this.firstName + " " + this.lastName + ". I am a " + role + ".");
-        }.bind(this.details, "Developer");
-        print();
-    }
- };
- 
- person2.get();
+alpha();
