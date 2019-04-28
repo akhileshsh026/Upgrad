@@ -1,20 +1,19 @@
-
-let add = (callback) => {
-  let x = 2, y = 3;
-  console.log("Sum :", x + y);
-  callback();
-}
-
-function displayComplition() 
+/*
+let events = document.getElementById("demo");
+if(events)
 {
-  console.log("Finished this operation!");
-};
-
-const subtract = (callback) => {
-  let x = 2, y = 3;
-  console.log("Difference :", x - y);
-  callback();
+    events.addEventListener('click', 
+    () =>{
+       let a = prompt(`What is your name?`);
+       alert(a); 
+       });
 }
+*/
+window.onload = function () {
 
-add(displayComplition);
-subtract(displayComplition);
+    document.getElementById('demo').addEventListener('click', 
+    () => {
+        let a = prompt(`What is your name?`);
+        alert(a); 
+    });
+}
