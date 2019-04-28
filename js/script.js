@@ -23,17 +23,18 @@ window.onload = function () {
 
 let name;
 
-let getName = () => {
+let getName = (callback) => {
     setTimeout(() => {
         name = "Akhilesh";
+        callback();
        }, 2000);
+       
 }
 
 let greet = ()=>{
-    setTimeout(() => {
+   
         console.log(`heloo ${name}`); 
-    }, 3000);
+    
 }
 
-getName();
-greet();
+getName(greet);
