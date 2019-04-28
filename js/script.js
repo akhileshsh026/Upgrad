@@ -21,20 +21,27 @@ window.onload = function () {
 
 */
 
-let name;
+
 
 let getName = (callback) => {
+    let name;
     setTimeout(() => {
         name = "Akhilesh";
-        callback();
+        callback(name);
        }, 2000);
        
 }
 
-let greet = ()=>{
+let greet = (nameVal)=>{
    
-        console.log(`heloo ${name}`); 
+        console.log(`heloo ${nameVal}`); 
     
 }
 
 getName(greet);
+
+// TODO 1: Write a function to create an order ID in the DB. You can mock this functionality by using a setTimeout() method which, after 2 seconds, assigns a value 101 to the order ID.
+
+// TODO 2: Write a callback function which prints the order ID to the console in this format: Order placed successfully with order ID = 101.
+
+// TODO 3: Invoke first function while passing in the callback function.
