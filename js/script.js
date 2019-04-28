@@ -1,28 +1,3 @@
-/*
-
- let add = (callback) => {
-    let x=2,y=3;
-    console.log(x+y);
-    
- }
-
- add(function() { 
-   console.log(`Finished this Operation.`);
-  });
-
-
- const substract = (callback) => {
-  let x=2,y=3;
-  console.log(x-y);
-   callback();
- }
-
- substract(function() {
-   console.log(`Finished this opertaion.`);
- });
-
-
-*/
 
 let add = (callback) => {
   let x = 2, y = 3;
@@ -30,9 +5,10 @@ let add = (callback) => {
   callback();
 }
 
-add(()=> {
+function displayComplition() 
+{
   console.log("Finished this operation!");
-});
+};
 
 const subtract = (callback) => {
   let x = 2, y = 3;
@@ -40,6 +16,5 @@ const subtract = (callback) => {
   callback();
 }
 
-subtract(()=> {
-  console.log("Finished this operation!");
-});
+add(displayComplition);
+subtract(displayComplition);
