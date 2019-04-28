@@ -8,7 +8,8 @@ if(events)
        alert(a); 
        });
 }
-*/
+
+// this code will works
 window.onload = function () {
 
     document.getElementById('demo').addEventListener('click', 
@@ -17,3 +18,18 @@ window.onload = function () {
         alert(a); 
     });
 }
+
+*/
+
+let name;
+
+let getName = () => {
+  name = "Akhilesh";
+}
+
+let greet = ()=>{
+    console.log(`heloo ${name}`);
+}
+
+getName();
+greet();
