@@ -24,7 +24,9 @@ window.onload = function () {
 let name;
 
 let getName = () => {
-  name = "Akhilesh";
+    setTimeout(() => {
+        name = "Akhilesh";
+       }, 2000);
 }
 
 let greet = ()=>{
