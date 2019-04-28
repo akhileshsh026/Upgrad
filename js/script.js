@@ -30,7 +30,9 @@ let getName = () => {
 }
 
 let greet = ()=>{
-    console.log(`heloo ${name}`);
+    setTimeout(() => {
+        console.log(`heloo ${name}`); 
+    }, 3000);
 }
 
 getName();
