@@ -1,15 +1,19 @@
-/* 
-1 method
-
-import {sum,avg} from './util1.ja';
-
-2 nd method
-
-import {sum as add} from './util.ja'; 
-  
-3rd method  * as an aliase
+/*
+let events = document.getElementById("demo");
+if(events)
+{
+    events.addEventListener('click', 
+    () =>{
+       let a = prompt(`What is your name?`);
+       alert(a); 
+       });
+}
 */
-import * as fn from './util1.js';
+window.onload = function () {
 
-console.log(fn.sum(1,2,3,4));
-console.log(fn.avg(1,2,3,4));
+    document.getElementById('demo').addEventListener('click', 
+    () => {
+        let a = prompt(`What is your name?`);
+        alert(a); 
+    });
+}
