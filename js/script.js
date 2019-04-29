@@ -1,15 +1,29 @@
-// TODO 1: Write a function to create an order ID in the DB. You can mock this functionality by using a setTimeout() method which, after 2 seconds, assigns a value 101 to the order ID.
+const fetchUserDetails = (username, password, callback) => {
+    database.authenticateUser(username, password, (error, userInfo) => {
+        if (error) {
+            callback(error);
+        } else {
+            database.getRoles(userInfo, (error, rolesInfo) => {
+                if (error) {
+                    callback(error);
+                } else {
+                    database.getPermissions(rolesInfo, (error, permissionsInfo) => {
+                        if (error) {
+                            callback(error);
+                        } else {
+                            callback(null, userInfo, rolesInfo, permissionsInfo);
+                        }
+                    });
+                }
+            });
+        }
+    });
+}
 
-function Order(PrintOrder) {
-       let OrderId;
-       setTimeout(() => {
-           OrderId=101;
-           PrintOrder(OrderId);
-       }, 2000);    
+const callback = (error, userInfo, rolesInfo, permissionsInfo) => {
+    // some code here
 }
-// TODO 2: Write a callback function which prints the order ID to the console in this format: Order placed successfully with order ID = 101.
-function PrintOrder(OrderIdValue) {
-    console.log(`Order placed successfully with order ID = ${OrderIdValue}.`);
-}
-// TODO 3: Invoke first function while passing in the callback function.
-Order(PrintOrder);
+
+
+
+
