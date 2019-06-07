@@ -7,8 +7,7 @@ let promiseObj = new Promise((resolve,reject) => {
 
 promiseObj.then(val => {
    console.log(`${val}`);
-})
-
-promiseObj.catch(err =>{
+}, err =>{
    console.log(err);
 })
+
