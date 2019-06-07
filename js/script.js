@@ -1,13 +1,43 @@
-let promiseObj = new Promise((resolve,reject) => {
-      console.log("Getting Data from db..");
-      setTimeout(() => {
-         resolve("Image uploaded Sucessfully .");
-      }, 2000);
-})
+// Using Pomises we can have clearer view 
 
-promiseObj.then(val => {
-   console.log(`${val}`);
-}, err =>{
-   console.log(err);
-})
+// CALLBACK HELL
+// function to fetch details of user in Student Management System
+const fetchUserDetails = (username, password, callback) => {
+   database.authenticateUser(username, password, (error, userInfo) => {
+       if (error) {
+           callback(error);
+       } else {
+           database.getRoles(userInfo, (error, rolesInfo) => {
+               if (error) {
+                   callback(error);
+               } else {
+                   database.getPermissions(rolesInfo, (error, permissionsInfo) => {
+                       if (error) {
+                           callback(error);
+                       } else {
+                           callback(null, userInfo, rolesInfo, permissionsInfo);
+                       }
+                   });
+               }
+           });
+       }
+   });
+}
 
+const callback = (error, userInfo, rolesInfo, permissionsInfo) => {
+   // some code here
+}
+
+// USING PROMISES
+// function to fetch details of user in Student Management System
+const fetchUserDetails = (username, password) => {
+   database.authenticateUser(username, password)
+       .then(userInfo => dataBase.getRoles(userInfo))
+       .then(rolesInfo => dataBase.getPermissions(rolesInfo))
+       .then(permissionsInfo => {
+           // code written inside the function named 'callback'
+       })
+       .catch((err) => {
+           // code to handle error
+       });
+};
