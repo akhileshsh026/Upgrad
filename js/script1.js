@@ -9,3 +9,5 @@ module.exports.calculateArea = calculateArea ;
 // other way to export
 
 module.exports['calculateCircumfrence']= calculateCircumfrence;
+
+module.exports['pi'] = pi;
