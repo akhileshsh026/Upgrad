@@ -1,13 +1,5 @@
 const pi = 3.14;
 
-const calculateArea = r => 2*pi*r;
+module.exports.calculateArea = r => 2*pi*r;
 
-const calculateCircumfrence = r => pi * r*r;
-
-
-
-module.exports = {
-    calculateArea : calculateArea ,
-    calculateCircumfrence : calculateCircumfrence ,
-    pi : pi
-};
+module.exports.calculateCircumfrence = r => pi * r*r;
