@@ -4,10 +4,10 @@ const calculateArea = r => 2*pi*r;
 
 const calculateCircumfrence = r => pi * r*r;
 
-module.exports.calculateArea = calculateArea ;
 
-// other way to export
 
-module.exports['calculateCircumfrence']= calculateCircumfrence;
-
-module.exports['pi'] = pi;
+module.exports = {
+    calculateArea : calculateArea ,
+    calculateCircumfrence : calculateCircumfrence ,
+    pi : pi
+};
