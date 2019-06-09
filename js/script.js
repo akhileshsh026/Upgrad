@@ -1,9 +1,4 @@
-const readline = require('readline').createInterface({
-    input : process.stdin,
-    output : process.stdout
- })
- 
- readline.question('What is your name', (name)=>{
-    console.log(`Hi! ${name}`);
-    readline.close();
- })
+let circle = require('./script1');
+
+console.log(circle.calculateArea(2));
+console.log(circle.calculateCircumfrence(3));
