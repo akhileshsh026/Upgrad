@@ -1,1 +1,1 @@
-console.log("This can be done by using the npm start ! keep in mind that.");
+console.log(require('module').builtinModules);
