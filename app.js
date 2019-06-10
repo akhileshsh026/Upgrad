@@ -1,17 +1,9 @@
 const fs = require('fs');
 
-let data = "Hello node js i will cook you out in my brain.";
+let data = "Those who understand binary or not .";
 let options = {
     encoding : 'utf8',
-    flag : 'w'
+    flag : 'a'
 };
 
-fs.writeFile('hello.txt',data,options,(err) => {
-    if(err)
-    {
-        console.log('Error Occured');
-    } else
-    {
-        console.log('Operation Completed Sucessfully');
-    }
-})
+fs.writeFileSync('hello.txt',data,options);
