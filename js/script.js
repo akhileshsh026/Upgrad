@@ -1,6 +1,5 @@
-let circle = require('./script1');
+let circle = require('./script1').alpha;
 
+let circle =10 ;
 
-
-console.log(circle.calculateArea(2));
-console.log(circle.calculateCircumfrence(3));
+console.log(circle);
