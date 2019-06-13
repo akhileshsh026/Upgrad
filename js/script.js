@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+let circle = require('./script1').alpha;
+=======
 /* TODO: Convert the given code using promises chain into code utilizing the new syntax of async & await keywords
 NOTES: A. All the identifiers remain constant.
 B. The entire logic remains as it is.
@@ -79,8 +82,13 @@ const validatePassword = (password) => {
 const done = () => {
     console.log("BOTH VALID");
 };
+>>>>>>> master
 
+let circle =10 ;
 
+<<<<<<< HEAD
+console.log(circle);
+=======
 /**
  * Function for logging into a website
  */
@@ -102,3 +110,4 @@ async function login() {
 }
 
 login();
+>>>>>>> master
