@@ -2,70 +2,60 @@ const crypto = require('crypto');
 const EC = require('elliptic').ec;
 const ec = new EC('secp256k1');
 
+// Miniing of the Block
+
 class Block
 {
-       constructor(index,transaction,timestamp,prevHash)
+       constructor(index,transaction,prevHash,nonce)
        {
         this.index = index;
         this.transaction = transaction ;
-        this.timestamp = timestamp;
+        if(typeof timestamp === 'undefined')
+        {
+          this.timestamp = new Date().getTime();
+        } else
+        {
+          this.timestamp = timestamp;
+        }
+
+        if(typeof nonce === 'undefined')
+        {
+          this.nonce = 0;
+        } else
+        {
+          this.nonce = nonce;
+        }
+
         this.hash = crypto.createHash('sha256').update(this.toString()).digest('hex');
         this.prevHash = prevHash ;
        };
+
+       updateNonce() {
+         this.nonce +=1;
+         let updatedBlock = new Block(this.index,this.transaction,this.transaction,this.prevHash,this.nonce);
+           this.hash = updatedBlock.hash;
+       }
 
        toString() {
            return JSON.stringify(this);
        }
 }
 
-let GenesisBlock = new Block(0,[],new Date().getTime(),"00000000000000000000000000000000");
+let GenesisBlock = new Block(0,[],new Date().getTime(),"this_is_hash_for_block_0", "this_is_prev_hash");
 
 let blockChain = [GenesisBlock];
 
-for (let index = 1; index < 10 ; index++) {
-    
-    blockChain.push(new Block(index,[], new Date().getTime(),blockChain[index-1].hash));
-}
+let newBlock = new Block(1,[],GenesisBlock.hash);
 
-//console.log(blockChain);
+console.log(newBlock);
 
-// let key = ec.genKeyPair();
+let difficulty = "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 
-
-// console.log(`Public Key points : [ ${key.getPublic().getX().toString() } , ${ key.getPublic().getY().toString()} ]`);
-// console.log(`Pulic Key : 04${key.getPublic().getX().toString('hex') + key.getPublic().getY().toString("hex")}`);
-// console.log(`Private Key : ${key.getPrivate('hex').toString()}`);
-
-// Digital Signature part
-
-function stringToHex (tmp) {
-    let str = '',
-      i = 0,
-      tmp_len = tmp.length,
-      c;
-  
-    for (; i < tmp_len; i += 1) {
-      c = tmp.charCodeAt(i);
-      str += c.toString(16) + '';
-    }
-    return str;
+while (parseInt(newBlock.hash,16) > parseInt(difficulty,16)) {
+   newBlock.updateNonce();
   }
+
+  blockChain.push(newBlock);
+  console.log(blockChain);
   
-  let key = ec.genKeyPair();
-  
-  let msg = "The password is 3219";
-  
-  let msgHex = stringToHex(msg);
-  
-  console.log("Message hex : ", msgHex);
-  
-  let signature = key.sign(msgHex);
-  
-  console.log("Signature : ", signature);
-  
-  let publicKey = "04" + key.getPublic().getX().toString('hex') + key.getPublic().getY().toString('hex');
-  
-  let keyFromPublicKeyOnly = ec.keyFromPublic(publicKey, 'hex');
-  
-  console.log("Is it correct signature ? => ", keyFromPublicKeyOnly.verify(msgHex, signature));
-  
+  console.log('Mined Block =>',newBlock);

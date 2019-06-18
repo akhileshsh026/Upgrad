@@ -31,4 +31,6 @@ let publicKey = "04" + key.getPublic().getX().toString('hex') + key.getPublic().
 
 let keyFromPublicKeyOnly = ec.keyFromPublic(publicKey, 'hex');
 
+console.log(keyFromPublicKeyOnly);
+
 console.log("Is it correct signature ? => ", keyFromPublicKeyOnly.verify(msgHex, signature));
